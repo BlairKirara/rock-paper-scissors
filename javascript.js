@@ -23,10 +23,10 @@ function changeCase(choice) {
 //function that checks if the player entered a correct value
 function validatePlayerChoice(playerSelection) {
     if (playerSelection == 'Rock' || playerSelection == 'Paper' || playerSelection == 'Scissors') {
-        validChoice = true;
+        validChoice = 1;
     }
     else {
-        validChoice = false;
+        validChoice = 0;
     }
     return validChoice;
 }
@@ -36,13 +36,24 @@ function playGame(playerSelection, computerSelection) {
     playerSelection = prompt("Please choose rock, paper or scissors: ");
     playerSelection = changeCase(playerSelection);
     validChoice = validatePlayerChoice(playerSelection);
-    while (validChoice != true) {
+    while (validChoice != 1) {
         playerSelection = prompt("The value is incorrect.\nPlease enter 'Rock', 'Paper' or 'Scissors': ");
         playerSelection = changeCase(playerSelection);
-        validChoice = validatePlayerChoice;
+        validChoice = validatePlayerChoice(playerSelection);
     }
     console.log(playerSelection);
+    computerSelection = getComputerChoice();
+    console.log(computerSelection);
+
+    if (playerSelection === computerSelection) {
+        console.log("It's a tie!");
+    }
+    else if (playerSelection === 'Rock' && computerSelection === 'Paper' || playerSelection === 'Paper' && computerSelection === 'Scissors' || playerSelection === 'Scissors' && computerSelection == 'Rock') {
+        console.log("You lost! Computer won!");
+    }
+    else {
+        console.log("You won! Congratulations!");
+    }
 }
 
-console.log(getComputerChoice());
 playGame();
