@@ -32,27 +32,35 @@ function validatePlayerChoice(playerSelection) {
 }
 
 //function that plays a single round of Rock, Paper, Scissors
-function playGame(playerSelection, computerSelection) {
-    playerSelection = prompt("Please choose rock, paper or scissors: ");
-    playerSelection = changeCase(playerSelection);
-    validChoice = validatePlayerChoice(playerSelection);
+function playRound(playerSelection, computerSelection) {
+
     while (validChoice != 1) {
         playerSelection = prompt("The value is incorrect.\nPlease enter 'Rock', 'Paper' or 'Scissors': ");
         playerSelection = changeCase(playerSelection);
         validChoice = validatePlayerChoice(playerSelection);
     }
-    console.log(playerSelection);
-    computerSelection = getComputerChoice();
-    console.log(computerSelection);
+    console.log(`Your choice: ${playerSelection}`);
+    console.log(`Computer's choice: ${computerSelection}`);
 
     if (playerSelection === computerSelection) {
-        console.log("It's a tie!");
+        return "It's a tie!";
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Paper' || playerSelection === 'Paper' && computerSelection === 'Scissors' || playerSelection === 'Scissors' && computerSelection == 'Rock') {
-        console.log("You lost! Computer won!");
+        return "You lost! Computer won!";
     }
     else {
-        console.log("You won! Congratulations!");
+        return "You won! Congratulations!";
+    }
+}
+
+//function that plays 5 rounds of the game
+function playGame() {
+    for (let step = 1; step < 6; step++) {
+        playerSelection = prompt("Please choose rock, paper or scissors: ");
+        playerSelection = changeCase(playerSelection);
+        validChoice = validatePlayerChoice(playerSelection);
+        computerSelection = getComputerChoice();
+        console.log(`Round ${step}/5\n${playRound(playerSelection, computerSelection)}\n`);
     }
 }
 
