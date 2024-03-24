@@ -44,6 +44,14 @@ const computerSelectionParagraph = document.createElement("p");
 const result = document.createElement("p");
 const currentScore = document.createElement("p");
 
+result.style.backgroundColor = "aliceblue";
+result.style.padding = "15px 15px";
+result.style.border = "2px dashed white";
+result.style.fontFamily = "cursive"
+result.style.fontSize =  "25px";
+
+
+
 results.append(result);
 result.textContent = "To start the game click on one of the options.";
 

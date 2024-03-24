@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(252, 218, 231);
+}
+
+.content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 250px;
+}
+
+.result {
+    display: flex;
+}
+
+.buttons {
+    display:flex;
+    justify-content: space-between;
+    border: 1px solid white;
+
+}
+
+button {
+    padding: 15px 20px;
+    font-size: 25px;
+    border: none;
+}
